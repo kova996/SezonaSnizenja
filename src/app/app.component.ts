@@ -15,15 +15,17 @@ export class MyApp {
 
   rootPage: any = TabsPage;
 
-  // pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     
     this.pages = [
-      { title: 'Home', component: pages.HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Naslovnica', component: pages.HomePage },
+      { title: 'Prijava', component: pages.LoginPage },
+      { title: 'FAQ', component: pages.FaqPage},
+      { title: 'Info', component: pages.InfoPage}
     ];
 
   }
