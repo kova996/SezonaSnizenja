@@ -22,7 +22,7 @@ export class MyApp {
 
     
     this.pages = [
-      { title: 'Naslovnica', component: pages.HomePage },
+      { title: 'Naslovnica', component: TabsPage },
       { title: 'Prijava', component: pages.LoginPage },
       { title: 'FAQ', component: pages.FaqPage},
       { title: 'Info', component: pages.InfoPage}
@@ -42,6 +42,9 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    if (page.title === 'Naslovnica')
+      this.nav.setRoot(page.component);
+    else
+      this.nav.push(page.component);
   }
 }
