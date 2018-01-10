@@ -18,7 +18,10 @@ import { TabsPage } from '../pages/tabs/tabs';
     pages.HomePage,
     pages.FavoritesPage,
     pages.CategoryPage,
-    pages.CatalogPage
+    pages.CatalogPage,
+    pages.LoginPage,
+    pages.FaqPage,
+    pages.InfoPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,10 @@ import { TabsPage } from '../pages/tabs/tabs';
     pages.HomePage,
     pages.FavoritesPage,
     pages.CategoryPage,
-    pages.CatalogPage
+    pages.CatalogPage,
+    pages.LoginPage,
+    pages.FaqPage,
+    pages.InfoPage
   ],
   providers: [
     StatusBar,
