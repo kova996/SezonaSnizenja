@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NgForm } from '@angular/forms';
 
 /**
  * Generated class for the LoginPage page.
@@ -20,6 +21,11 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+  }
+
+  onSubmit(form: NgForm){
+    console.log(form.value.username);
+    console.log(form.value.password);
   }
 
 }

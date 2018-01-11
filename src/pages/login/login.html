@@ -1,16 +1,33 @@
+<ion-header no-border>
 
-<ion-header>
-
-  <ion-navbar color="primary">
+  <ion-navbar transparent>
     <button menuToggle ion-button icon-only>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Prijava</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-img class="centered-block" src="./../../assets/imgs/logo.png" width="90%" height="100px"></ion-img>
+  <h2 text-center style="font-family: 'Segoe UI'; font-weight: 100" >Prijava</h2>
+
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <ion-list>
+      <ion-item>
+        <ion-label>Username</ion-label>
+        <ion-input type="text" ngModel name="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input ngModel name="password" type="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <button class="centered-block" ion-button type="submit" default>Prijava</button>
+      </ion-item>
+    </ion-list>
+  </form>
 
 </ion-content>
