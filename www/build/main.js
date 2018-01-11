@@ -417,6 +417,10 @@ var LoginPage = (function () {
     LoginPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad LoginPage');
     };
+    LoginPage.prototype.onSubmit = function (form) {
+        console.log(form.value.username);
+        console.log(form.value.password);
+    };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"C:\Users\alen1\Desktop\ostalo\SezonaSnizenja\src\pages\login\login.html"*/'<ion-header no-border>\n\n\n\n  <ion-navbar transparent>\n\n    <button menuToggle ion-button icon-only>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <ion-img class="centered-block" src="./../../assets/imgs/logo.png" width="90%" height="100px"></ion-img>\n\n  <h2 text-center style="font-family: \'Segoe UI\'; font-weight: 100" >Prijava</h2>\n\n\n\n  <form #form="ngForm" (ngSubmit)="onSubmit(form)">\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-label>Username</ion-label>\n\n        <ion-input type="text" ngModel name="username"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>Password</ion-label>\n\n        <ion-input ngModel name="password" type="password"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <button class="centered-block" ion-button type="submit" default>Prijava</button>\n\n      </ion-item>\n\n    </ion-list>\n\n  </form>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\alen1\Desktop\ostalo\SezonaSnizenja\src\pages\login\login.html"*/,
@@ -564,7 +568,7 @@ var MyApp = (function () {
         this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_tabs_tabs__["a" /* TabsPage */];
         this.initializeApp();
         this.pages = [
-            { title: 'Naslovnica', component: __WEBPACK_IMPORTED_MODULE_4__pages_pages__["e" /* HomePage */] },
+            { title: 'Naslovnica', component: __WEBPACK_IMPORTED_MODULE_5__pages_tabs_tabs__["a" /* TabsPage */] },
             { title: 'Prijava', component: __WEBPACK_IMPORTED_MODULE_4__pages_pages__["g" /* LoginPage */] },
             { title: 'FAQ', component: __WEBPACK_IMPORTED_MODULE_4__pages_pages__["c" /* FaqPage */] },
             { title: 'Info', component: __WEBPACK_IMPORTED_MODULE_4__pages_pages__["f" /* InfoPage */] }
@@ -582,7 +586,10 @@ var MyApp = (function () {
     MyApp.prototype.openPage = function (page) {
         // Reset the content nav to have just this page
         // we wouldn't want the back button to show in this scenario
-        this.nav.setRoot(page.component);
+        if (page.title === 'Naslovnica')
+            this.nav.setRoot(page.component);
+        else
+            this.nav.push(page.component);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */]),
