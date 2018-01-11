@@ -12,5 +12,16 @@
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item *ngFor = "let discount of discounts; let i = index">
+      <ion-thumbnail item-start id="discountItem">
+        <img  [src]="discount.picture" [alt]="discount.name">
+      </ion-thumbnail>
+        <h2><b>{{discount.name}}</b></h2>
+        <p text-wrap>{{discount.info}}</p>
+        <!-- <ion-avatar item-end id="company">
+          <ion-img src=""></ion-img>
+        </ion-avatar> -->
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -25678,6 +25678,15 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+page-home .item ion-thumbnail img {
+  min-width: 11rem;
+  min-height: 11rem;
+}
+
+page-home .item ion-avatar {
+  border-radius: 70%;
+}
+
 page-login ion-content {
   font-family: 'Segoe UI';
 }

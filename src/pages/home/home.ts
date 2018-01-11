@@ -1,6 +1,7 @@
 
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage} from 'ionic-angular';
+import { DiscountService } from '../../services/discount';
 
 @IonicPage()
 @Component({
@@ -9,12 +10,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class HomePage {
 
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  discounts : any[];
+  constructor(private discountService : DiscountService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+  ionViewWillEnter(){
+    this.discounts = this.discountService.getDiscounts();
+    console.log(this.discounts);
   }
+
+ 
 
 }

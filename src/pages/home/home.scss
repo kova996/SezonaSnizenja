@@ -1,3 +1,12 @@
 page-home {
+    
+    .item ion-thumbnail img{
+        min-width: 11rem;
+        min-height: 11rem;
+    }
+
+    .item ion-avatar{
+        border-radius: 70%;
+    }
 
 }

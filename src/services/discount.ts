@@ -6,7 +6,7 @@ export class DiscountService{
          discount : 50,
          newPrice : 100,
          info : "Crna - Crvena - Siva\nS,M,L,Xl",
-         picture : "",
+         picture : "https://www.rost-sport.hr/EasyEdit/UserFiles/CatalogImages/polo-majica-tommy-hilfiger/polo-majica-th-royal-blue-veluni-hilfiger-636040161814238005_670_670.jpeg",
          discountStart : "11.01.2018",
          discountEnd : "12.01.2018"
         }
