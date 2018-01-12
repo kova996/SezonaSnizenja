@@ -13,6 +13,8 @@
 
 <ion-content padding>
   <ion-list>
+    <!-- TODO:
+    Make this article view and later make a component out of it -->
     <ion-item *ngFor = "let discount of discounts; let i = index">
       <ion-thumbnail item-start id="discountItem">
         <img  [src]="discount.picture" [alt]="discount.name">
