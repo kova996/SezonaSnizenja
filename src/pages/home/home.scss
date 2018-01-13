@@ -47,12 +47,12 @@ page-home {
         position: absolute;
         bottom: 5px;
         right:5px;
-        color: white;
+        color: red;
         z-index: 100000;
-        font-weight: 900;
+        font-weight: 800;
         border-radius: 50%;
-        background-color: red;
-
+        background-color: transparent;
+        font-size: 1.5em;
     }
     
     #item-prices {
@@ -70,6 +70,7 @@ page-home {
     }
 
     #item-prices--new-price {
+        
     }
 
     .shop-avatar{

@@ -1,4 +1,3 @@
-
 <ion-header>
 
   <ion-navbar color="primary">
@@ -12,5 +11,78 @@
 
 
 <ion-content padding>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <img [src]="pictures.shoes">
+          <div class="card-title">
+            Obuća
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <img [src]="pictures.clothes">
+        </ion-card>
+        <div class="card-title">
+          Odjeća
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <img [src]="pictures.home">
+        </ion-card>
+        <div class="card-title">
+          Za Dom
+        </div>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <img [src]="pictures.garden">
+        </ion-card>
+        <div class="card-title">
+          Za Vrt
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <img [src]="pictures.kitchen">
+        </ion-card>
+        <div class="card-title">
+          Kuhinja
+        </div>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <img [src]="pictures.household">
+        </ion-card>
+        <div class="card-title">
+          Bijela tehnika
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <img [src]="pictures.tech">
+        </ion-card>
+        <div class="card-title">
+          Tehnologija
+        </div>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <img [src]="pictures.kids">
+        </ion-card>
+        <div class="card-title">
+          Za Djecu
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
