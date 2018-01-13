@@ -25,7 +25,7 @@ export class CategoryPage {
    {link: "https://images.pexels.com/photos/273822/pexels-photo-273822.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb",
   name:"Kuhinja"},
    {link: "https://images.pexels.com/photos/213162/pexels-photo-213162.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb",
-  name:"Bijela Tehnologija"},
+  name:"Bijela Tehnika"},
    {link : "https://images.pexels.com/photos/164854/pexels-photo-164854.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb",
    name:"Za Djecu"
  }]
