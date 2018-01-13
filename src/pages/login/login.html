@@ -9,19 +9,19 @@
 </ion-header>
 
 
-<ion-content padding >
+<ion-content padding>
 
   <img class="centered-block" src="./../../assets/imgs/logo.png">
-  <h2 text-center style="font-family: 'Segoe UI'; font-weight: 100" >Prijava</h2>
+  <h2 text-center class="heading">Prijava</h2>
 
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <ion-list>
       <ion-item>
-        <ion-label>Username</ion-label>
+        <ion-label color="light">Username</ion-label>
         <ion-input type="text" ngModel name="username"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Password</ion-label>
+        <ion-label color="light">Password</ion-label>
         <ion-input ngModel name="password" type="password"></ion-input>
       </ion-item>
       <ion-item>
@@ -29,5 +29,18 @@
       </ion-item>
     </ion-list>
   </form>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center style="color: white; text-decoration: underline">
+        Zaboravili ste lozinku?
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col text-center style="color: white;">
+        Nemate račun? <span style="text-decoration: underline">Napravite ga!</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

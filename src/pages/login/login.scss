@@ -1,7 +1,17 @@
 page-login {
+
+    ion-content{
+    background: linear-gradient(#0074D9, #DDDDDD);
+    }
+
     ion-content {
         font-family: 'Segoe UI';
     }
+
+    .item-md{
+        background: transparent;
+    }
+
     button{
         ion-button {
             font-weight: 100 !important;
@@ -9,9 +19,23 @@ page-login {
         
     }
 
-    .centered-block {
+    .centered-block{
         display: block;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .centered-block.button{
+        background-color: #0074D9;
+    }
+
+    .heading{
+        font-family: 'Segoe UI'; 
+        font-weight: 100;
+        color:white;
+    }
+
+    .item-md.item-input.input-has-focus.item-inner{
+        border: white;
     }
 }

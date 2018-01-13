@@ -22,8 +22,8 @@ $app-direction: ltr;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
-
-
+$text-input-md-highlight-color: "transparent";
+$text-input-md-highlight-color-valid : "transparent";
 
 // Named Color Variables
 // --------------------------------------------------
@@ -52,8 +52,6 @@ $colors: (
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
-
 
 
 // App Windows Variables
