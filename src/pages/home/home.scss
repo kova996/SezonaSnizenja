@@ -1,12 +1,84 @@
 page-home {
-    
-    .item ion-thumbnail img{
-        min-width: 11rem;
-        min-height: 11rem;
+    font-family: 'Segoe UI';
+
+    ion-item {
+        position: relative;
     }
 
-    .item ion-avatar{
-        border-radius: 70%;
+    .item-md p {
+        white-space: pre-line;
+        font-size: 12px;
+    }
+
+    .item-md {
+        padding-left:0px;
+    }
+
+    ion-item, .item-block{
+        border-radius: 10px;
+        margin-bottom: 7px;
+        box-shadow: 0px 0px 41px -17px rgba(0,0,0,0.75);
+    }
+
+    #favorite{
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        z-index: 100000;
+        overflow: visible;
+        color: yellow;
+    }
+
+    #discount-item {
+        position: relative;
+        width: 100px;
+        padding: 0;
+        margin: 0;
+        margin-right: 7px;
+        box-shadow: 9px 0px 34px -20px rgba(0,0,0,0.75);
+    }
+
+    #discount-item__image {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    #discount-item__discount {
+        position: absolute;
+        bottom: 5px;
+        right:5px;
+        color: white;
+        z-index: 100000;
+        font-weight: 900;
+        border-radius: 50%;
+        background-color: red;
+
+    }
+    
+    #item-prices {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        z-index: 100000;
+        color: red;
+    }
+
+    #item-prices--old-price {
+        text-decoration: line-through;
+        font-size: 12px;
+        text-align: end;
+    }
+
+    #item-prices--new-price {
+    }
+
+    .shop-avatar{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 100000;
+        overflow: visible;
+        width: 70px;
     }
 
 }

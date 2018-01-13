@@ -16,11 +16,25 @@
     <!-- TODO:
     Make this article view and later make a component out of it -->
     <ion-item *ngFor = "let discount of discounts; let i = index">
-      <ion-thumbnail item-start id="discountItem">
-        <img  [src]="discount.picture" [alt]="discount.name">
-      </ion-thumbnail>
-        <h2><b>{{discount.name}}</b></h2>
-        <p text-wrap>{{discount.info}}</p>
+      <div item-start id="discount-item">
+        <img  [src]="discount.picture" [alt]="discount.name" id="discount-item__image">
+        <button ion-button icon-only clear id="favorite">
+          <ion-icon name="ios-star-outline"></ion-icon>
+        </button>
+        <div id="discount-item__discount">
+           {{discount.discount}}% 
+        </div>
+      </div>
+
+      <h2><b>{{discount.name}}</b></h2>
+      <p>{{discount.info}}</p>
+      <div class="shop-avatar">
+        <img src="http://vu.esnlithuania.org/sites/vu.esnlithuania.org/files/partners/images/New%20Yorker%20logo.jpg" alt="shop-avatar">
+      </div>
+      <div id="item-prices">
+        <div id="item-prices--old-price">{{discount.oldPrice}}kn</div>
+        <div id="item-prices--new-price">{{discount.newPrice}}kn</div>
+      </div>
         <!-- <ion-avatar item-end id="company">
           <ion-img src=""></ion-img>
         </ion-avatar> -->
