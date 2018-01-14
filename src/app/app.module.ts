@@ -10,6 +10,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { DiscountService } from '../services/discount';
+import { DiscountItemComponent } from '../components/discount-item/discount-item';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { DiscountService } from '../services/discount';
     pages.CatalogPage,
     pages.LoginPage,
     pages.FaqPage,
-    pages.InfoPage
+    pages.InfoPage,
+    DiscountItemComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { DiscountService } from '../services/discount';
     pages.CatalogPage,
     pages.LoginPage,
     pages.FaqPage,
-    pages.InfoPage
+    pages.InfoPage,
+    DiscountItemComponent
   ],
   providers: [
     StatusBar,

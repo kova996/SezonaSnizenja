@@ -1,0 +1,121 @@
+discount-item {
+
+    ion-item {
+        position: relative;
+    }
+
+    .col{
+        padding:0;
+    }
+    .grid{
+        padding:0;
+    }
+
+    .item-md p {
+        white-space: pre-line;
+        font-size: 12px;
+    }
+
+    .item-md {
+        padding-left:0px;
+        width:100%;
+    }
+
+    ion-col{
+        img{
+            height: auto;
+            width: 80px;
+            float:right;
+        }
+    }
+
+    ion-item, .item-block{
+        border-radius: 10px;
+        margin-bottom: 7px;
+        box-shadow: 0px 0px 41px -17px rgba(0,0,0,0.75);
+    }
+    
+    #favorite{
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        z-index: 1000001;
+        overflow: visible;
+        color: orange;
+    }
+
+    #discount-item {
+        position: relative;
+        max-width: 90px;
+        width: 90px;
+        height: 100px;
+        background-position: center !important;
+        padding: 0;
+        margin: 0;
+        margin-right: 7px;
+        box-shadow: 9px 0px 34px -20px rgba(0,0,0,0.75);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        
+    }
+
+    #discount-item__image {
+        position: absolute;
+        margin: auto;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    #discount-item__discount {
+        position: absolute;
+        bottom: 5px;
+        right:5px;
+        color: white;
+        z-index: 100000;
+        font-weight: 100;
+        border-radius: 50%;
+        background-color: transparent;
+        font-size: 14px;
+        background-color: red;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        padding-top: 6px;
+        text-align: center;
+    }
+    
+    #item-prices {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        z-index: 100000;
+        color: red;
+    }
+
+    #item-prices--old-price {
+        text-decoration: line-through;
+        font-size: 12px;
+        text-align: end;
+    }
+
+    #item-prices--new-price 
+    {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .shop-avatar{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        z-index: 100000;
+        overflow: visible;
+        width: 70px;
+    }
+}
