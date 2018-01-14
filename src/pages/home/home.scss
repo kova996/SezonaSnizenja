@@ -26,12 +26,15 @@ page-home {
         left: 5px;
         z-index: 100000;
         overflow: visible;
-        color: yellow;
+        color: orange;
     }
 
     #discount-item {
         position: relative;
+        max-width: 100px;
         width: 100px;
+        height: 100px;
+        background-position: center !important;
         padding: 0;
         margin: 0;
         margin-right: 7px;
@@ -39,6 +42,13 @@ page-home {
     }
 
     #discount-item__image {
+        position: absolute;
+        margin: auto;
+        top:0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
     }
@@ -47,12 +57,18 @@ page-home {
         position: absolute;
         bottom: 5px;
         right:5px;
-        color: red;
+        color: white;
         z-index: 100000;
-        font-weight: 800;
+        font-weight: 100;
         border-radius: 50%;
         background-color: transparent;
-        font-size: 1.5em;
+        font-size: 14px;
+        background-color: red;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        padding-top: 6px;
+        text-align: center;
     }
     
     #item-prices {
