@@ -10,11 +10,11 @@
 
 
 <ion-content padding>
-
-  <img class="centered-block" src="./../../assets/imgs/logo.png">
+  <div ion-fixed>
+  <img class="centered-block" src="./../../assets/imgs/logo.png" no-bounce>
   <h2 text-center class="heading">Prijava</h2>
 
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)" no-bounce>
     <ion-list>
       <ion-item>
         <ion-label color="light">Username</ion-label>
@@ -42,5 +42,5 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
+  </div>
 </ion-content>

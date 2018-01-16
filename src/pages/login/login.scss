@@ -1,5 +1,6 @@
 page-login {
 
+
     ion-content{
     background: linear-gradient(#0074D9, #DDDDDD);
     }
@@ -37,5 +38,9 @@ page-login {
 
     .item-md.item-input.input-has-focus.item-inner{
         border: white;
+    }
+
+    .no-scroll{
+        overflow: hidden;
     }
 }
