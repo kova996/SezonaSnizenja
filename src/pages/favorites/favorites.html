@@ -12,5 +12,7 @@
 
 
 <ion-content padding>
-
+  <ion-item *ngFor = "let favorite of favorites; let i = index">
+    <discount-item [discount]="favorite" [page]="'favorites'"></discount-item>
+  </ion-item>
 </ion-content>

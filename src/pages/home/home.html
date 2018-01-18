@@ -19,7 +19,7 @@
     <!-- <discount-item *ngFor = "let discount of discounts; let i = index" [discount]="discount"></discount-item> -->
 
     <ion-item *ngFor = "let discount of discounts; let i = index">
-      <discount-item [discount]="discount"></discount-item>
+      <discount-item [discount]="discount"  [page] = "'home'"></discount-item>
     </ion-item>
 
     <!-- <ion-item *ngFor = "let discount of discounts; let i = index">

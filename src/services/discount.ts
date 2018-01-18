@@ -8,7 +8,8 @@ export class DiscountService {
       info: "Crna - Crvena - Siva\nS,M,L,Xl",
       picture: "https://www.rost-sport.hr/EasyEdit/UserFiles/CatalogImages/polo-majica-tommy-hilfiger/polo-majica-th-royal-blue-veluni-hilfiger-636040161814238005_670_670.jpeg",
       discountStart: "11.01.2018",
-      discountEnd: "12.01.2018"
+      discountEnd: "12.01.2018",
+      id : 1
     },
     {
       name: "Kruške 1kg",
@@ -18,7 +19,8 @@ export class DiscountService {
       info: "Crna - Crvena - Siva\nS,M,L,Xl",
       picture: "http://narodnilijek.com/web/wp-content/uploads/kru%C5%A1ke-mr%C5%A1avljenje.jpg",
       discountStart: "11.01.2018",
-      discountEnd: "12.01.2018"
+      discountEnd: "12.01.2018",
+      id : 2
     },
     {
       name: "Trokrilni ormar",
@@ -28,7 +30,8 @@ export class DiscountService {
       info: "Crna - Crvena - Siva\nS,M,L,Xl",
       picture: "https://cdn1.jysk.com/getimage/wd2.large/38055",
       discountStart: "11.01.2018",
-      discountEnd: "12.01.2018"
+      discountEnd: "12.01.2018",
+      id : 3
     },
     {
       name: "Tulipan",
@@ -38,7 +41,8 @@ export class DiscountService {
       info: "Crna - Crvena - Siva\nS,M,L,Xl",
       picture: "https://www.jabuka.tv/wp-content/uploads/2016/10/tulipan.jpg",
       discountStart: "11.01.2018",
-      discountEnd: "12.01.2018"
+      discountEnd: "12.01.2018",
+      id : 4
     },
     {
       name: "Grah 1kg",
@@ -48,7 +52,8 @@ export class DiscountService {
       info: "Crna - Crvena - Siva\nS,M,L,Xl",
       picture: "http://www.gastronomika.hr/wordpress/wp-content/uploads/dreamstime_grah.jpg",
       discountStart: "11.01.2018",
-      discountEnd: "12.01.2018"
+      discountEnd: "12.01.2018",
+      id : 5
     },
     {
       name: "Griotte",
@@ -58,9 +63,12 @@ export class DiscountService {
       info: "Crna - Crvena - Siva\nS,M,L,Xl",
       picture: "http://www.kras.hr/datastore/filestore/40/Griotte-358g_big_118.png",
       discountStart: "11.01.2018",
-      discountEnd: "12.01.2018"
+      discountEnd: "12.01.2018",
+      id : 6
     }
   ];
+
+  favorites : any[] = [];
 
 
   addDiscount(discount: any) {
@@ -80,6 +88,28 @@ export class DiscountService {
 
   calculateDiscount(oldPrice: number, discount: number) {
     return oldPrice - (oldPrice * (discount / 100))
+  }
+
+  addToFavorites(discount : any){
+    this.favorites.push(discount);
+    console.log(this.favorites);
+    //TODO - spremi u bazu
+  }
+
+  getFavorites(){
+    return this.favorites.slice();
+    //TODO - dohvati iz baze
+  }
+
+  removeFromFavorites(discount : any){
+    let index = this.favorites.map((o) => { return o.id; }).indexOf(discount.id);
+    console.log(index);
+    this.favorites.splice(index, 1);
+    //TODO - spremi nove favorite u bazu
+  }
+
+  isInFavorites(discount : any){
+    return this.favorites.find(item => {return item.id === discount.id});
   }
 
 }
