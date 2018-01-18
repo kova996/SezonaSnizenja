@@ -25,6 +25,7 @@ import { DiscountItemComponent } from '../components/discount-item/discount-item
     pages.LoginPage,
     pages.FaqPage,
     pages.InfoPage,
+    pages.ArticlePage,
     DiscountItemComponent
   ],
   imports: [
@@ -43,6 +44,7 @@ import { DiscountItemComponent } from '../components/discount-item/discount-item
     pages.LoginPage,
     pages.FaqPage,
     pages.InfoPage,
+    pages.ArticlePage,
     DiscountItemComponent
   ],
   providers: [
