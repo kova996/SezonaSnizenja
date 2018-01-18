@@ -11,17 +11,17 @@
 
 <ion-content padding>
   <div ion-fixed>
-  <img class="centered-block" src="./../../assets/imgs/logo.png" no-bounce>
+  <img class="centered-block" src="./../../assets/imgs/logo.png">
   <h2 text-center class="heading">Prijava</h2>
 
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)" no-bounce>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <ion-list>
       <ion-item>
-        <ion-label color="light">Username</ion-label>
+        <ion-label color="light" floating>Username</ion-label>
         <ion-input type="text" ngModel name="username"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label color="light">Password</ion-label>
+        <ion-label color="light" floating>Password</ion-label>
         <ion-input ngModel name="password" type="password"></ion-input>
       </ion-item>
       <ion-item>
@@ -43,4 +43,5 @@
     </ion-row>
   </ion-grid>
   </div>
+
 </ion-content>
