@@ -40,13 +40,13 @@ export class DiscountItemComponent implements OnInit{
     if(this.discountService.isInFavorites(this.discount)){
       this.discountService.removeFromFavorites(this.discount);
       toast.setMessage("Item removed from favorites!");
+      this.favoriteEvent.emit(this.discountService.getFavorites());
       toast.present();
     }else{
       this.discountService.addToFavorites(this.discount);
       toast.setMessage("Item added to favorites!");
       toast.present();
     }
-    console.log(this.isFavorite);
   }
 
 }

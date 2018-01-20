@@ -19,4 +19,9 @@ export class FavoritesPage {
     console.log(this.favorites);
   }
 
+  onFavoriteEvent(favorites : any){
+    console.log("Ušlo");
+    this.favorites = favorites;
+  }
+
 }
