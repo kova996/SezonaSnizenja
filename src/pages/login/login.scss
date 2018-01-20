@@ -17,21 +17,24 @@ page-login {
         ion-button {
             font-weight: 100 !important;
         }
-        
+
     }
 
     .centered-block{
         display: block;
         margin-left: auto;
         margin-right: auto;
+        width: 80%;
     }
 
     .centered-block.button{
         background-color: #0074D9;
+        width: 30%;
+        margin-top: 20px;
     }
 
     .heading{
-        font-family: 'Segoe UI'; 
+        font-family: 'Segoe UI';
         font-weight: 100;
         color:white;
     }
@@ -42,5 +45,11 @@ page-login {
 
     .no-scroll{
         overflow: hidden;
+    }
+    .item-input{
+      width: 95%;
+    }
+    .label-md[floating]{
+      color: white !important;
     }
 }
