@@ -1,12 +1,21 @@
 import { Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import { DiscountService } from '../../services/discount';
-import { ToastController } from 'ionic-angular';
+import { ToastController,NavController, NavParams } from 'ionic-angular';
+
+import { ArticlePage } from "../../pages/pages";
+
 
 @Component({
   selector: 'discount-item',
   templateUrl: 'discount-item.html' 
 })
 export class DiscountItemComponent implements OnInit{
+
+  constructor(private nav: NavController, private navParams: NavParams,private discountService : DiscountService, private toastController : ToastController){
+
+  }
+  
+  isFavorite : boolean = false;
 
   @Input() discount: any;
 
@@ -18,18 +27,12 @@ export class DiscountItemComponent implements OnInit{
     return oldPrice - (oldPrice * (discount / 100))
   }
 
-  isFavorite : boolean = false;
-
   ngOnInit(){
 
   }
 
   ionViewWillEnter(){
     console.log("Ušlo");
-  }
-
-  constructor(private discountService : DiscountService, private toastController : ToastController){
-
   }
 
   starClicked(){
@@ -47,6 +50,11 @@ export class DiscountItemComponent implements OnInit{
       toast.setMessage("Item added to favorites!");
       toast.present();
     }
+  }
+  
+  openArticlePage(discount){
+    this.nav.push(ArticlePage, discount);
+
   }
 
 }

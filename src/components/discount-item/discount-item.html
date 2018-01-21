@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   <ion-grid>
     <ion-row>
       <ion-col col-4>
@@ -12,20 +13,37 @@
     </div>
   </div>
 </ion-col>
+=======
+<ion-grid (click)="openArticlePage(discount)">
+  <ion-row>
+    <ion-col col-4>
+      <div item-start id="discount-item" [style.backgroundImage]="'url('+discount.picture+')'">
+        <!-- <img  [src]="discount.picture" [alt]="discount.name" id="discount-item__image"> -->
+        <button ion-button icon-only clear id="favorite">
+          <ion-icon name="ios-star-outline"></ion-icon>
+        </button>
+        <div id="discount-item__discount">
+          -{{discount.discount}}%
+        </div>
+      </div>
+    </ion-col>
+>>>>>>> article-page
 
-<ion-col>
-  <!-- <img src="http://vu.esnlithuania.org/sites/vu.esnlithuania.org/files/partners/images/New%20Yorker%20logo.jpg" alt="shop-avatar"> -->
-  <h2><b>{{discount.name}}</b></h2>
-  <p>{{discount.info}}</p>
-  </ion-col>
-  <ion-col>
-  <div class="shop-avatar">
-    <img src="http://vu.esnlithuania.org/sites/vu.esnlithuania.org/files/partners/images/New%20Yorker%20logo.jpg" alt="shop-avatar">
-  </div>
-  <div id="item-prices">
-    <div id="item-prices--old-price">{{discount.oldPrice}}kn</div>
-    <div id="item-prices--new-price">{{calculateDiscount(discount.oldPrice,discount.discount) | number: '.2-2'}}kn</div>
-  </div>
-  </ion-col>
+    <ion-col>
+      <!-- <img src="http://vu.esnlithuania.org/sites/vu.esnlithuania.org/files/partners/images/New%20Yorker%20logo.jpg" alt="shop-avatar"> -->
+      <h2>
+        <b>{{discount.name}}</b>
+      </h2>
+      <p>{{discount.info}}</p>
+    </ion-col>
+    <ion-col>
+      <div class="shop-avatar">
+        <img src="http://vu.esnlithuania.org/sites/vu.esnlithuania.org/files/partners/images/New%20Yorker%20logo.jpg" alt="shop-avatar">
+      </div>
+      <div id="item-prices">
+        <div id="item-prices--old-price">{{discount.oldPrice}}kn</div>
+        <div id="item-prices--new-price">{{calculateDiscount(discount.oldPrice,discount.discount) | number: '.2-2'}}kn</div>
+      </div>
+    </ion-col>
   </ion-row>
 </ion-grid>
