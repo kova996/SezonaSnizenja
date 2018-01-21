@@ -4,15 +4,28 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header no-border>
 
-  <ion-navbar color="primary">
-    <ion-title>{{article?.name}}</ion-title>
+  <ion-navbar transparent>
+    <ion-title></ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <div class="article-picture" [style.backgroundImage]="'url('+article?.picture+')'">
+    <h1 class="article-title">{{article?.name}}</h1>
+    <div class="shop-avatar">
+      <img src="http://vu.esnlithuania.org/sites/vu.esnlithuania.org/files/partners/images/New%20Yorker%20logo.jpg" alt="shop-avatar">
+    </div>
+  </div>
+  <div class="article-content">
+    <p>
+      Stara cijena: {{article?.oldPrice| number: '.2-2'}}kn<br>
+      Nova cijena: {{calculateDiscount(article?.oldPrice,article?.discount) | number: '.2-2'}}kn<br>
+      Info: {{article?.info}}<br>
+      Akcija traje od {{article?.discountStart}} do {{article?.discountEnd}}
+    </p>
+  </div>
 </ion-content>

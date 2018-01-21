@@ -18,4 +18,7 @@ export class ArticlePage {
     console.log(this.article);
   }
 
+  calculateDiscount(oldPrice: number, discount: number) {
+    return oldPrice - (oldPrice * (discount / 100))
+  }
 }
