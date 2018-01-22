@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -12,6 +13,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { DiscountService } from '../services/discount';
 import { DiscountItemComponent } from '../components/discount-item/discount-item';
 
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,9 @@ import { DiscountItemComponent } from '../components/discount-item/discount-item
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBlOyEdeupFeoYLeElfx-PFj-Sb_LhNQZg'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

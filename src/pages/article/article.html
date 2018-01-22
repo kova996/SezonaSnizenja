@@ -27,5 +27,10 @@
       Info: {{article?.info}}<br>
       Akcija traje od {{article?.discountStart}} do {{article?.discountEnd}}
     </p>
+    <agm-map [latitude]="map?.lat" [longitude]="map?.lng" [zoom]="map?.zoom">
+      <agm-marker [latitude]="map?.lat" [longitude]="map?.lng">
+          <agm-info-window><b>{{map?.markerLabel}}</b></agm-info-window>
+      </agm-marker>
+    </agm-map>
   </div>
 </ion-content>

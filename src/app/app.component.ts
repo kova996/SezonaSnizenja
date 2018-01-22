@@ -7,6 +7,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import * as pages from './../pages/pages';
 import { TabsPage } from '../pages/tabs/tabs';
 
+import { AgmCoreModule } from '@agm/core';
+
 @Component({
   templateUrl: 'app.html'
 })
