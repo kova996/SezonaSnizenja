@@ -14,7 +14,7 @@ export class ArticlePage {
 
   article : any;
 
-  map: any; //just so we can make map placeholder
+  map: any; 
 
   options : GeolocationOptions;
 
@@ -46,16 +46,6 @@ export class ArticlePage {
     .catch(
       error => {alert(error)}
     );
-
-
-
-    //just something as a placeholder
-    // this.map = {
-    //   lat: 51.678418,
-    //   lng: 7.809007,
-    //   zoom: 12,
-    //   markerLabel: 'lokacija'
-    // }
   }
 
   calculateDiscount(oldPrice: number, discount: number) {
@@ -112,7 +102,7 @@ export class ArticlePage {
                   destination: closest.geometry.location.lat + ","+closest.geometry.location.lng,
                   optimizeWaypoints: true,
                   travelMode: 'DRIVING'
-                }, function(response, status) {
+                }, (response, status) =>{
                   if (status === 'OK') {
                     console.log(response.routes);
                     directionsDisplay.setDirections(response);
@@ -121,8 +111,7 @@ export class ArticlePage {
                     window.alert('Directions request failed due to ' + status);
                   }
                 });
-              }
-            });
+              }});
         }
       });
 
