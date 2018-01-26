@@ -12,8 +12,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { DiscountService } from '../services/discount';
 import { DiscountItemComponent } from '../components/discount-item/discount-item';
+import {Geolocation} from "@ionic-native/geolocation";
+import { LocationService } from '../services/location';
+import { HttpModule } from '@angular/http';
 
-import { AgmCoreModule } from '@agm/core';
+// import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -33,9 +36,10 @@ import { AgmCoreModule } from '@agm/core';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBlOyEdeupFeoYLeElfx-PFj-Sb_LhNQZg'
-    })
+    HttpModule
+    // AgmCoreModule.forRoot({
+    //   apiKey: 'AIzaSyBlOyEdeupFeoYLeElfx-PFj-Sb_LhNQZg'
+    // })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,7 +60,9 @@ import { AgmCoreModule } from '@agm/core';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DiscountService
+    DiscountService,
+    Geolocation,
+    LocationService
   ]
 })
 export class AppModule {}

@@ -21,7 +21,6 @@ export class FavoritesPage {
 
   onFavoriteEvent(favorites : any){
     console.log("Ušlo");
-    console.log("ej");
     this.favorites = favorites;
   }
 
