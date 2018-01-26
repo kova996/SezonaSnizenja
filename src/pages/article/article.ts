@@ -59,13 +59,9 @@ export class ArticlePage {
 
     let dur;
 
-    let distances = [];
-
     let minimum = 100;
 
     let closest;
-
-    let index;
 
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
