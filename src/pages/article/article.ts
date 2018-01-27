@@ -87,8 +87,8 @@ export class ArticlePage {
               dur = response.rows[0].elements[0].duration.text;
               dist = response.rows[0].elements[0].distance.text;
               this.createMarker(this.place[i], dur, dist);
-              if(+dist.split(" ")[0] < minimum){
-                minimum = +dist.split(" ")[0];
+              if(+dist.split(" ")[0].replace(',','.') < minimum){
+                minimum = +dist.split(" ")[0].replace(',','.');
                 closest = this.place[i];
               }
               if(i === this.place.length - 1){
