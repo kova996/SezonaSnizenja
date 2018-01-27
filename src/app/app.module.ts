@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -13,17 +14,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { DiscountService } from '../services/discount';
 import { DiscountItemComponent } from '../components/discount-item/discount-item';
 
-import { AngularFireModule } from 'angularfire2';
-
 import { AgmCoreModule } from '@agm/core';
 
-export const firebaseConfig = {
-  apiKey: 'AIzaSyAglsHEot1LymES-UU8nT1cJsFhWlzcEPw',
-  authDomain: 'sezonasnizenja-1516963711219.firebaseapp.com',
-  databaseURL: 'https://sezonasnizenja-1516963711219.firebaseio.com',
-  storageBucket: 'sezonasnizenja-1516963711219.appspot.com',
-  messagingSenderId: '822483050083'
-};
 
 @NgModule({
   declarations: [
@@ -38,6 +30,8 @@ export const firebaseConfig = {
     pages.FaqPage,
     pages.InfoPage,
     pages.ArticlePage,
+    pages.RegisterPage,
+    pages.UserPage,
     DiscountItemComponent
   ],
   imports: [
@@ -45,8 +39,7 @@ export const firebaseConfig = {
     IonicModule.forRoot(MyApp),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBlOyEdeupFeoYLeElfx-PFj-Sb_LhNQZg'
-    }),
-    AngularFireModule.initializeApp(firebaseConfig)
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -61,13 +54,16 @@ export const firebaseConfig = {
     pages.FaqPage,
     pages.InfoPage,
     pages.ArticlePage,
+    pages.RegisterPage,
+    pages.UserPage,
     DiscountItemComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DiscountService
+    DiscountService,
+    AuthService
   ]
 })
 export class AppModule {}

@@ -1,0 +1,55 @@
+page-register {
+
+
+    ion-content{
+    background: linear-gradient(#0074D9, #DDDDDD);
+    }
+
+    ion-content {
+        font-family: 'Segoe UI';
+    }
+
+    .item-md{
+        background: transparent;
+    }
+
+    button{
+        ion-button {
+            font-weight: 100 !important;
+        }
+
+    }
+
+    .centered-block{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+    }
+
+    .centered-block.button{
+        background-color: #0074D9;
+        width: 30%;
+        margin-top: 20px;
+    }
+
+    .heading{
+        font-family: 'Segoe UI';
+        font-weight: 100;
+        color:white;
+    }
+
+    .item-md.item-input.input-has-focus.item-inner{
+        border: white;
+    }
+
+    .no-scroll{
+        overflow: hidden;
+    }
+    .item-input{
+      width: 95%;
+    }
+    .label-md[floating]{
+      color: white !important;
+    }
+}

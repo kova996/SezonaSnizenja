@@ -1,22 +1,20 @@
-import { Component } from '@angular/core';
+import { Component , OnInit, HostBinding } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {RegisterPage, UserPage} from './../pages';
+
+import { AuthService } from '../../services/auth.service';
 
 @IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
 })
+
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthService) {
   }
 
   ionViewDidLoad() {
@@ -24,8 +22,15 @@ export class LoginPage {
   }
 
   onSubmit(form: NgForm){
-    console.log(form.value.username);
-    console.log(form.value.password);
+    this.auth.loginUserAsync(form.value.username, form.value.password)
+      .then(()=> {
+        this.navCtrl.setRoot(UserPage)
+      }, err => console.log(err));
+  }
+
+  registration(){
+    this.navCtrl.push(RegisterPage);
   }
 
 }
+ 

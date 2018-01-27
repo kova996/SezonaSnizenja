@@ -12,7 +12,7 @@
 <ion-content padding>
   <div ion-fixed>
   <img class="centered-block" src="../../assets/logo.png">
-  <h2 text-center class="heading">Prijava</h2>
+  <h2 text-center class="heading">Registracija</h2>
 
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <ion-list>
@@ -25,23 +25,10 @@
         <ion-input ngModel name="password" type="password"></ion-input>
       </ion-item>
       <ion-item>
-        <button class="centered-block" ion-button type="submit" default>Prijava</button>
+        <button class="centered-block" ion-button type="submit" default>Registriraj me</button>
       </ion-item>
     </ion-list>
   </form>
-
-  <ion-grid>
-    <ion-row>
-      <ion-col text-center style="color: white; text-decoration: underline" >
-        Zaboravili ste lozinku?
-      </ion-col>
-    </ion-row>
-    <ion-row >
-      <ion-col text-center style="color: white;">
-        Nemate račun? <span style="text-decoration: underline" (click)="registration()">Napravite ga!</span>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  </div>
+</div>
 
 </ion-content>

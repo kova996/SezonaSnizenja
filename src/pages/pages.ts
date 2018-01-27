@@ -6,3 +6,5 @@ export * from "./login/login";
 export * from "./info/info";
 export * from "./faq/faq";
 export * from "./article/article";
+export * from "./register/register";
+export * from "./user/user";

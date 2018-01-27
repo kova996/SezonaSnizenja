@@ -1,5 +1,5 @@
 import { HomePage } from './../pages/home/home';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -9,9 +9,12 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { AgmCoreModule } from '@agm/core';
 
+import * as firebase from 'firebase';
+
 @Component({
   templateUrl: 'app.html'
 })
+
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
@@ -30,6 +33,17 @@ export class MyApp {
       { title: 'Info', component: pages.InfoPage}
     ];
 
+  }
+  ngOnInit(){
+    firebase.initializeApp(
+      {
+        apiKey: 'AIzaSyAglsHEot1LymES-UU8nT1cJsFhWlzcEPw',
+        authDomain: 'sezonasnizenja-1516963711219.firebaseapp.com',
+        databaseURL: 'https://sezonasnizenja-1516963711219.firebaseio.com',
+        storageBucket: 'sezonasnizenja-1516963711219.appspot.com',
+        messagingSenderId: '822483050083'
+      }
+    );
   }
 
   initializeApp() {
