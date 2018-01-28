@@ -1,4 +1,5 @@
 import * as firebase from 'firebase';
+import { Events } from 'ionic-angular';
 
 export class AuthService {
     token: string;
@@ -39,6 +40,7 @@ export class AuthService {
     }
 
     getTokenAsync(){
+        console.log(firebase.auth().currentUser);
         if(firebase.auth().currentUser)
             return firebase.auth().currentUser.getIdToken();
         
@@ -51,5 +53,25 @@ export class AuthService {
     logout(){
         firebase.auth().signOut();
         this.token = null;
+    }
+
+    getCurrentUser(){
+        console.log(firebase.auth().currentUser);
+        return firebase.auth().currentUser;
+    }
+
+    updateCurrentUser(name: string, photoUrl: string){
+        var user =  this.getCurrentUser();
+
+        return user.updateProfile({
+            displayName: name,
+            photoURL: photoUrl
+        }).then(
+            () => {
+                console.log("Updating profile finshed successful!");
+            }
+        ).catch(
+            err => console.log(err)
+        );
     }
 }

@@ -1,8 +1,11 @@
 
-<ion-header color='primary'>
+<ion-header>
 
-  <ion-navbar>
-    <ion-title>UserPage</ion-title>
+  <ion-navbar color='primary'>
+      <button menuToggle ion-button icon-only>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>{{user.name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -11,5 +14,13 @@
 <ion-content padding>
   <button ion-button (click)="logout()">
     <ion-icon name="basketball"></ion-icon> Idi natrag
+  </button>
+  <div class="information">
+    name: {{user.name}}<br>
+    email: {{user.email}}   
+  </div>
+
+  <button ion-button (click)="changeProfile()">
+    Update
   </button>
 </ion-content>

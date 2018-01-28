@@ -1,6 +1,6 @@
 import { HomePage } from './../pages/home/home';
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -11,6 +11,9 @@ import { AgmCoreModule } from '@agm/core';
 
 import * as firebase from 'firebase';
 
+import { AuthService } from '../services/auth.service';
+import { auth } from 'firebase';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -18,15 +21,20 @@ import * as firebase from 'firebase';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TabsPage;
+  rootPage: any;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private auth: AuthService, private events: Events) {
+    
+    
     this.initializeApp();
 
     
-    this.pages = [
+    this.pages = this.auth.isAuthenticated() ? [
+     
+    ] : 
+    [
       { title: 'Naslovnica', component: TabsPage },
       { title: 'Prijava', component: pages.LoginPage },
       { title: 'FAQ', component: pages.FaqPage},
@@ -51,8 +59,60 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+
+      let authRef = this.auth;
+      let ref = this;
+
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          // User is signed in
+          // Show them the authenticated content...
+          console.log("you are logged in");
+          firebase.auth().currentUser.getIdToken().then(
+            (res) => {
+              //setting up old token
+              authRef.token = res;
+              ref.changePageOnIsAuthenticated();
+              ref.splashScreen.hide()
+              }
+          );
+        } else {
+          // No user is signed in
+          // Let's sign them in
+          ref.changePageOnIsAuthenticated();
+          console.log("you need to login");
+          ref.splashScreen.hide()
+        }
+      });
+
+      // this.auth.getTokenAsync().then(
+      //   ()=>{
+      //     console.log(this.auth.isAuthenticated());
+      //     this.splashScreen.hide();
+      //   }
+      // )
+      console.log(this.auth.isAuthenticated());
+      this.splashScreen.hide()
+      //if we sign in
+      this.events.subscribe("login:changed",() =>{
+        console.log(this.auth.isAuthenticated());
+        this.changePageOnIsAuthenticated();
+      });
     });
+  }
+
+  changePageOnIsAuthenticated(){
+    this.pages = this.auth.isAuthenticated() ? [
+        
+    ] : 
+    [
+      { title: 'Naslovnica', component: TabsPage },
+      { title: 'Prijava', component: pages.LoginPage },
+      { title: 'FAQ', component: pages.FaqPage},
+      { title: 'Info', component: pages.InfoPage}
+    ];
+
+    this.rootPage = this.auth.isAuthenticated() ? pages.UserPage : TabsPage;
   }
 
   openPage(page) {
@@ -63,4 +123,5 @@ export class MyApp {
     else
       this.nav.push(page.component);
   }
+
 }
