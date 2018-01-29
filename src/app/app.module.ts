@@ -77,12 +77,9 @@ import { HttpModule } from '@angular/http';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DiscountService,
-<<<<<<< HEAD
-    AuthService
-=======
     Geolocation,
-    LocationService
->>>>>>> mapBranch
+    LocationService,
+    AuthService
   ]
 })
 export class AppModule {}

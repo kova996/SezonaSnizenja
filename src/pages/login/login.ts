@@ -25,6 +25,8 @@ export class LoginPage {
   onSubmit(form: NgForm){
     this.auth.loginUserAsync(form.value.username, form.value.password)
       .then((res)=> {
+        // this.navCtrl.setRoot(UserPage)
+        // console.log(res);
         if(this.auth.getCurrentUser!=null)
           this.auth.getCurrentUser().getIdToken()
             .then(
