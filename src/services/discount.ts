@@ -26,6 +26,7 @@ export class DiscountService {
     },
     {
       name: "Trokrilni ormar",
+      store: "Konzum",
       oldPrice: 943,
       discount: 20,
       newPrice: 735,

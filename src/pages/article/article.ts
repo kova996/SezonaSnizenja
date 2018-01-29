@@ -34,8 +34,7 @@ export class ArticlePage {
     console.log(this.article);
 
     this.options = {
-      enableHighAccuracy: true,
-       timeout: 3000
+      enableHighAccuracy: true
     }
 
     this.geolocation.getCurrentPosition(this.options).then(
@@ -92,7 +91,7 @@ export class ArticlePage {
                 closest = this.place[i];
               }
               if(i === this.place.length - 1){
-                console.log(closest);
+                console.log(closest.vicinity);
                 directionsService.route({
                   origin: lat + "," + lon,
                   destination: closest.geometry.location.lat + ","+closest.geometry.location.lng,
