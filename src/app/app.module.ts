@@ -32,6 +32,11 @@ import { AgmCoreModule } from '@agm/core';
     pages.ArticlePage,
     pages.RegisterPage,
     pages.UserPage,
+    pages.ProfilePage,
+    pages.AllActiveDiscountsPage,
+    pages.AllDiscountsPage,
+    pages.DiscountAddPage,
+    pages.DiscountHistoryPage,
     DiscountItemComponent
   ],
   imports: [
@@ -56,6 +61,11 @@ import { AgmCoreModule } from '@agm/core';
     pages.ArticlePage,
     pages.RegisterPage,
     pages.UserPage,
+    pages.ProfilePage,
+    pages.AllActiveDiscountsPage,
+    pages.AllDiscountsPage,
+    pages.DiscountAddPage,
+    pages.DiscountHistoryPage,
     DiscountItemComponent
   ],
   providers: [

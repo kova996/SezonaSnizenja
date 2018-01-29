@@ -12,15 +12,9 @@
 
 
 <ion-content padding>
-  <button ion-button (click)="logout()">
-    <ion-icon name="basketball"></ion-icon> Idi natrag
+  <button ion-button color="light" block (click)="openPage(page.component)" *ngFor="let page of pages">
+    {{page.title}}
   </button>
-  <div class="information">
-    name: {{user.name}}<br>
-    email: {{user.email}}   
-  </div>
 
-  <button ion-button (click)="changeProfile()">
-    Update
-  </button>
+  
 </ion-content>

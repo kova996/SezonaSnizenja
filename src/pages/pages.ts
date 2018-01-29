@@ -8,3 +8,9 @@ export * from "./faq/faq";
 export * from "./article/article";
 export * from "./register/register";
 export * from "./user/user";
+export * from "./all-active-discounts/all-active-discounts";
+export * from "./all-discounts/all-discounts";
+export * from "./discount-add/discount-add";
+export * from "./discount-history/discount-history";
+export * from "./profile/profile";
+

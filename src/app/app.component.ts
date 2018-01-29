@@ -32,7 +32,11 @@ export class MyApp {
 
     
     this.pages = this.auth.isAuthenticated() ? [
-     
+      { title: 'Naslovnica', component: pages.UserPage },
+      { title: 'Uredi Profil', component: pages.ProfilePage },
+      { title: 'Pregledih svih sniženja', component: pages.AllDiscountsPage },
+      { title: 'FAQ', component: pages.FaqPage},
+      { title: 'Info', component: pages.InfoPage}
     ] : 
     [
       { title: 'Naslovnica', component: TabsPage },
@@ -103,7 +107,11 @@ export class MyApp {
 
   changePageOnIsAuthenticated(){
     this.pages = this.auth.isAuthenticated() ? [
-        
+      { title: 'Naslovnica', component: pages.UserPage },
+      { title: 'Uredi Profil', component: pages.ProfilePage },
+      { title: 'Pregledih svih sniženja', component: pages.AllDiscountsPage },
+      { title: 'FAQ', component: pages.FaqPage},
+      { title: 'Info', component: pages.InfoPage}
     ] : 
     [
       { title: 'Naslovnica', component: TabsPage },

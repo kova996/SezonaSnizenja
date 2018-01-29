@@ -5,6 +5,7 @@ import { Events } from 'ionic-angular';
 import { TabsPage } from './../tabs/tabs';
 import { AuthService } from '../../services/auth.service';
 
+import * as pages from '../pages';
 
 @IonicPage()
 @Component({
@@ -14,6 +15,7 @@ import { AuthService } from '../../services/auth.service';
 export class UserPage {
 
   user: any;
+  pages: Array<{title: string, component: any}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private auth: AuthService, private events: Events) {
     let temp = auth.getCurrentUser();
@@ -21,6 +23,12 @@ export class UserPage {
       name: temp.displayName,
       email: temp.email
     }
+
+    this.pages =[
+      { title: 'Dodaj sniženje', component: pages.DiscountAddPage },
+      { title: 'Pregled aktivnih sniženja', component: pages.AllActiveDiscountsPage },
+      { title: 'Povijest sniženja', component: pages.DiscountHistoryPage },
+    ]; 
   }
 
   ionViewDidLoad() {
@@ -47,6 +55,9 @@ export class UserPage {
         this.updateInformation();
       }
     );
-    
+  }
+
+  openPage(page) {
+    this.navCtrl.push(page);
   }
 }
