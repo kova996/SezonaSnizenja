@@ -40,7 +40,11 @@ page-article {
         top:0;
         right:0;
     }
-    agm-map{
-        height: 200px;
+    // agm-map{
+    //     height: 200px;
+    // }
+    #map {
+        height: 230px;
+        width:100%;
     }
 }

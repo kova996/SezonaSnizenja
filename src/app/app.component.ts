@@ -7,7 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import * as pages from './../pages/pages';
 import { TabsPage } from '../pages/tabs/tabs';
 
-import { AgmCoreModule } from '@agm/core';
+// import { AgmCoreModule } from '@agm/core';
 
 import * as firebase from 'firebase';
 

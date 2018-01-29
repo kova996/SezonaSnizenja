@@ -2,6 +2,7 @@ export class DiscountService {
 
   private discounts: any[] = [{
       name: "Polo Majica - Crivit",
+      store : "New Yorker",
       oldPrice: 200,
       discount: 50,
       newPrice: 100,
@@ -13,6 +14,7 @@ export class DiscountService {
     },
     {
       name: "Kruške 1kg",
+      store: "Lidl",
       oldPrice: 283,
       discount: 30,
       newPrice: 234,
@@ -24,6 +26,7 @@ export class DiscountService {
     },
     {
       name: "Trokrilni ormar",
+      store: "Konzum",
       oldPrice: 943,
       discount: 20,
       newPrice: 735,
