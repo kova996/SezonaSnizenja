@@ -96,7 +96,7 @@ export class MyApp {
       //   }
       // )
       console.log(this.auth.isAuthenticated());
-      this.splashScreen.hide()
+      
       //if we sign in
       this.events.subscribe("login:changed",() =>{
         console.log(this.auth.isAuthenticated());
