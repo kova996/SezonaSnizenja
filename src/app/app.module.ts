@@ -16,6 +16,7 @@ import { DiscountItemComponent } from '../components/discount-item/discount-item
 import {Geolocation} from "@ionic-native/geolocation";
 import { LocationService } from '../services/location';
 import { HttpModule } from '@angular/http';
+import {Camera} from "@ionic-native/camera";
 
 // import { AgmCoreModule } from '@agm/core';
 
@@ -79,7 +80,8 @@ import { HttpModule } from '@angular/http';
     DiscountService,
     Geolocation,
     LocationService,
-    AuthService
+    AuthService,
+    Camera
   ]
 })
 export class AppModule {}

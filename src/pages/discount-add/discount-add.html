@@ -1,9 +1,3 @@
-<!--
-  Generated template for the DiscountAddPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar color="primary">
@@ -14,5 +8,45 @@
 
 
 <ion-content padding>
-
+  <form #form = "ngForm" (ngSubmit) = "onSubmit(form)">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Naziv artikla</ion-label>
+        <ion-input type="text" required name="name" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Stara Cijena(kn)</ion-label>
+        <ion-input type="number" required name="oldPrice" ngModel (change) = "changeOld($event)"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Postotak sniženja(%)</ion-label>
+        <ion-input type="number" required name="discount" ngModel (change) = "changeDiscount($event)"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Nova Cijena(kn)</ion-label>
+        <ion-input required disabled name="newPrice" [ngModel] = "newPrice"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Info</ion-label>
+        <ion-textarea rows="5" name="info" ngModel></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Početak sniženja</ion-label>
+        <ion-datetime required name = "discountStart" ngModel></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Završetak sniženja</ion-label>
+        <ion-datetime required name = "discountEnd" ngModel></ion-datetime>
+      </ion-item>
+      <ion-item text-center>
+        <button ion-button large outline (click)="onImageTaken()" type="button">Slikaj</button>
+      </ion-item>
+      <ion-item text-center *ngIf="imageData != ''">
+      <img [src]="imageData" alt="Slika skraaa" style="height: 200px; width: 250px">
+    </ion-item>
+      <ion-item text-center>
+        <button ion-button type="submit" large [disabled] = "form.invalid">Pošalji</button>
+      </ion-item>
+    </ion-list>
+  </form>
 </ion-content>
