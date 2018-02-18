@@ -16,7 +16,7 @@ export class DiscountAddPage {
   oldPrice = 0;
   discount = 0;
   imageData = "";
-  storage = firebase.storage().ref("pictures");
+  storage = firebase.storage().ref("pictures/");
 
   options : CameraOptions = {
     quality: 100,
@@ -36,7 +36,8 @@ export class DiscountAddPage {
     this.camera.getPicture(this.options).then(
       data => {
         this.imageData = data;
-        this.storage.putString(data, "data_url").then(()=> {alert("Uspilo")})
+        let imageRef = this.storage.child("test.jpg");
+        imageRef.putString("data:image/jpeg;base64," + data, "data_url").then(()=> {alert("Uspilo")})
         .catch(err => {alert(err.message)});
       })
     .catch(reason => {alert(reason.message)});
