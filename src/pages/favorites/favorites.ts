@@ -12,10 +12,12 @@ export class FavoritesPage {
   constructor(private discountService : DiscountService) {
   }
 
-  favorites : any[] = [];
+  favorites;
 
   ionViewWillEnter(){
-    this.favorites = this.discountService.getFavorites();
+    this.discountService.getFavorites().then(
+      response => this.favorites = response
+    );
     console.log(this.favorites);
   }
 

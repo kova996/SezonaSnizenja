@@ -18,8 +18,14 @@ export class HomePage {
   }
 
   ionViewWillEnter(){
-    this.discounts = this.discountService.getDiscounts();
+    this.discountService.getDiscounts().subscribe(
+      response => {
+       this.discounts = response;
+      }
+    );
     console.log(this.discounts);
+    this.discountService.getCategoryDiscounts("Za Dom").subscribe(
+      response => {console.log(response)});
   }
   openArticlePage(discount){
     this.nav.push(ArticlePage, discount);

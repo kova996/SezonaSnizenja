@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage} from 'ionic-angular';
+import { IonicPage, NavController} from 'ionic-angular';
+import { CategoryDetailPage } from '../pages';
+
 
 @IonicPage()
 @Component({
@@ -8,7 +10,7 @@ import { IonicPage} from 'ionic-angular';
 })
 export class CategoryPage {
 
-  constructor() {
+  constructor(private navController : NavController) {
   }
 
  categories : any = [
@@ -28,6 +30,11 @@ export class CategoryPage {
   name:"Bijela Tehnika"},
    {link : "https://images.pexels.com/photos/164854/pexels-photo-164854.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb",
    name:"Za Djecu"
- }]
+ }];
+
+ openCategoryDetail(name : any){
+   console.log(name);
+   this.navController.push(CategoryDetailPage, {name : name});
+ }
 
 }

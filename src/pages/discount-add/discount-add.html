@@ -31,18 +31,24 @@
         <ion-textarea rows="5" name="info" ngModel></ion-textarea>
       </ion-item>
       <ion-item>
+        <ion-label floating>Kategorija</ion-label>
+        <ion-select name = "category" ngModel required>
+          <ion-option *ngFor = "let category of categories; let i = index" [value] = "category">{{category}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
         <ion-label floating>Početak sniženja</ion-label>
-        <ion-datetime required name = "discountStart" ngModel></ion-datetime>
+        <ion-datetime required name = "discountStart" ngModel displayFormat="DD/MM/YYYY"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label floating>Završetak sniženja</ion-label>
-        <ion-datetime required name = "discountEnd" ngModel></ion-datetime>
+        <ion-datetime required name = "discountEnd" ngModel displayFormat="DD/MM/YYYY"></ion-datetime>
       </ion-item>
       <ion-item text-center>
         <button ion-button large outline (click)="onImageTaken()" type="button">Slikaj</button>
       </ion-item>
-      <ion-item text-center *ngIf="imageData != ''">
-      <img [src]="imageData" alt="Slika skraaa" style="height: 200px; width: 250px">
+      <ion-item text-center *ngIf="imageHTML != 'data:image/jpeg;base64,'">
+      <img [src]="imageHTML" alt="Slika skraaa" style="height: 200px; width: 250px">
     </ion-item>
       <ion-item text-center>
         <button ion-button type="submit" large [disabled] = "form.invalid">Pošalji</button>

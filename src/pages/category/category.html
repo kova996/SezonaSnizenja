@@ -13,7 +13,7 @@
   <ion-grid>
     <ion-row >
       <ion-col *ngFor="let category of categories" col-6>
-        <ion-card [style.backgroundImage]="'url('+category.link+')'">
+        <ion-card [style.backgroundImage]="'url('+category.link+')'" (click) = "openCategoryDetail(category.name)">
           <!-- <img [src]="category.link"> -->
           <div class="card-title">
             {{category.name}}

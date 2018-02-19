@@ -17,13 +17,15 @@ import {Geolocation} from "@ionic-native/geolocation";
 import { LocationService } from '../services/location';
 import { HttpModule } from '@angular/http';
 import {Camera} from "@ionic-native/camera";
-
-// import { AgmCoreModule } from '@agm/core';
-
+import {AngularFireDatabaseModule, AngularFireDatabase} from "angularfire2/database";
+import {AngularFireModule} from "angularfire2";
+import { MaxLengthPipe } from '../pipes/length-pipe';
+import {IonicStorageModule, Storage} from "@ionic/storage";
 
 @NgModule({
   declarations: [
     MyApp,
+    MaxLengthPipe,
     // pages.HomePage,
     TabsPage,
     pages.HomePage,
@@ -41,15 +43,22 @@ import {Camera} from "@ionic-native/camera";
     pages.AllDiscountsPage,
     pages.DiscountAddPage,
     pages.DiscountHistoryPage,
+    pages.CategoryDetailPage,
     DiscountItemComponent
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
-    // AgmCoreModule.forRoot({
-    //   apiKey: 'AIzaSyBlOyEdeupFeoYLeElfx-PFj-Sb_LhNQZg'
-    // })
+    HttpModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp( {
+      apiKey: 'AIzaSyAglsHEot1LymES-UU8nT1cJsFhWlzcEPw',
+      authDomain: 'sezonasnizenja-1516963711219.firebaseapp.com',
+      databaseURL: 'https://sezonasnizenja-1516963711219.firebaseio.com',
+      storageBucket: 'sezonasnizenja-1516963711219.appspot.com',
+      messagingSenderId: '822483050083'
+    }),
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -71,6 +80,7 @@ import {Camera} from "@ionic-native/camera";
     pages.AllDiscountsPage,
     pages.DiscountAddPage,
     pages.DiscountHistoryPage,
+    pages.CategoryDetailPage,
     DiscountItemComponent
   ],
   providers: [
@@ -81,7 +91,8 @@ import {Camera} from "@ionic-native/camera";
     Geolocation,
     LocationService,
     AuthService,
-    Camera
+    Camera,
+    AngularFireDatabase
   ]
 })
 export class AppModule {}
