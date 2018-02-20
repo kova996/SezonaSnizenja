@@ -20,7 +20,7 @@
       <h2>
         <b>{{discount.name}}</b>
       </h2>
-      <p>{{discount.info}}</p>
+      <p>{{discount.info | length}}</p>
     </ion-col>
     <ion-col (click)="openArticlePage(discount)">
       <div class="shop-avatar">
@@ -28,7 +28,7 @@
       </div>
       <div id="item-prices">
         <div id="item-prices--old-price">{{discount.oldPrice}}kn</div>
-        <div id="item-prices--new-price">{{calculateDiscount(discount.oldPrice,discount.discount) | number: '.2-2'}}kn</div>
+        <div id="item-prices--new-price">{{discount.newPrice}}kn</div>
       </div>
     </ion-col>
   </ion-row>

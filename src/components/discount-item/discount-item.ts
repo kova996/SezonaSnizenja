@@ -36,6 +36,8 @@ export class DiscountItemComponent implements OnInit{
     console.log(this.discount);
   }
 
+  favorites = [];
+
   starClicked(){
     const toast = this.toastController.create({
       position: "top",
@@ -44,7 +46,8 @@ export class DiscountItemComponent implements OnInit{
     if(this.discountService.isInFavorites(this.discount)){
       this.discountService.removeFromFavorites(this.discount);
       toast.setMessage("Item removed from favorites!");
-      this.favoriteEvent.emit(this.discountService.getFavorites());
+      this.favorites = this.discountService.getFavorites();
+      this.favoriteEvent.emit(this.favorites);
       toast.present();
     }else{
       this.discountService.addToFavorites(this.discount);

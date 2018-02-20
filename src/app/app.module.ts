@@ -20,7 +20,6 @@ import {Camera} from "@ionic-native/camera";
 import {AngularFireDatabaseModule, AngularFireDatabase} from "angularfire2/database";
 import {AngularFireModule} from "angularfire2";
 import { MaxLengthPipe } from '../pipes/length-pipe';
-import {IonicStorageModule, Storage} from "@ionic/storage";
 
 @NgModule({
   declarations: [
@@ -57,8 +56,7 @@ import {IonicStorageModule, Storage} from "@ionic/storage";
       databaseURL: 'https://sezonasnizenja-1516963711219.firebaseio.com',
       storageBucket: 'sezonasnizenja-1516963711219.appspot.com',
       messagingSenderId: '822483050083'
-    }),
-    IonicStorageModule.forRoot(),
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

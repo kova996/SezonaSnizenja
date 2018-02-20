@@ -4,12 +4,11 @@ import { AngularFireDatabase } from "angularfire2/database";
 import "rxjs/Rx";
 import {Observable} from "rxjs/Observable";
 import {of} from "rxjs/Observable/of";
-import {Storage} from "@ionic/storage";
 
 @Injectable()
 export class DiscountService {
 
-  constructor( private storage : Storage, private db : AngularFireDatabase){
+  constructor(private db : AngularFireDatabase){
   }
 
 
@@ -130,26 +129,32 @@ export class DiscountService {
 
   addToFavorites(discount : any){
     this.favorites.push(discount);
-    // console.log(this.favorites);
-    // this.storage.set("favorites",this.favorites);
+    console.log(this.favorites);
+    localStorage.setItem("favorites", JSON.stringify(this.favorites));
   }
 
   getFavorites(){
-    // return this.storage.get("favorites");
-    //TODO - dohvati iz baze
     return this.favorites.slice();
+    
+    //TODO - dohvati iz baze
+  }
+
+  loadFavorites(){
+    this.favorites = JSON.parse(localStorage.getItem("favorites"));
+    // alert(this.favorites);
   }
 
   removeFromFavorites(discount : any){
     let index = this.favorites.map((o) => { return o.id; }).indexOf(discount.id);
     console.log(index);
     this.favorites.splice(index, 1);
-    // this.storage.set("favorites",this.favorites);
+    console.log(this.favorites);
+    localStorage.setItem("favorites",JSON.stringify(this.favorites));
     //TODO - spremi nove favorite u bazu
   }
 
   isInFavorites(discount : any){
-    return this.favorites.find(item => {return item.id === discount.id});
+        return this.favorites.find(item => {return item.id === discount.id});
   }
 
 }

@@ -13,6 +13,7 @@ import * as firebase from 'firebase';
 
 import { AuthService } from '../services/auth.service';
 import { auth } from 'firebase';
+import { DiscountService } from '../services/discount';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,7 +26,8 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private auth: AuthService, private events: Events) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private auth: AuthService,
+     private events: Events) {
     
     
     this.initializeApp();

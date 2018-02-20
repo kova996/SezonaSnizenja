@@ -74,6 +74,7 @@ export class DiscountAddPage {
     let imageRef = this.storage.child(discount.name + "-" + (customId) + ".jpg");
     imageRef.putString("data:image/jpeg;base64," + this.imageData, "data_url").then((response) => {
         discount["picture"] = response.downloadURL;
+        discount["id"] = customId;
         this.discountService.addDiscount(discount);
         load.dismiss();
         let alertDa = this.alertCtrl.create({message: "Artikal je dodan!", buttons:["OK"]});
