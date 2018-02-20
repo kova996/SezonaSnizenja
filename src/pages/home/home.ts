@@ -21,11 +21,9 @@ export class HomePage {
     this.discountService.getDiscounts().subscribe(
       response => {
        this.discounts = response;
+       alert(this.discounts[1].name);
       }
     );
-    console.log(this.discounts);
-    this.discountService.getCategoryDiscounts("Za Dom").subscribe(
-      response => {console.log(response)});
   }
   openArticlePage(discount){
     this.nav.push(ArticlePage, discount);

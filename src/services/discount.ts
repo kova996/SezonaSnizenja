@@ -9,12 +9,8 @@ import {Storage} from "@ionic/storage";
 @Injectable()
 export class DiscountService {
 
-  constructor(private db : AngularFireDatabase, private storage : Storage){
-    this.getFavorites().then(
-      response => this.favorites = response
-    );
+  constructor( private storage : Storage, private db : AngularFireDatabase){
   }
-
 
 
   private discounts : any[] = [];
@@ -93,15 +89,15 @@ export class DiscountService {
 
 
   addDiscount(discount: any) {
-    // this.discounts.push(discount);
-    //dodaj discounte na server sa firebasom
+    this.discounts.push(discount);
     this.db.list<any>("discounts/").push(discount);
   }
 
   getDiscounts(){
     //discounts = nesto sa servera uz pomoc firebasea
     let discounts = [];
-    // return this.db.list<any>("discounts").valueChanges();
+   
+   
     return this.db.list<any>("discounts/").valueChanges()
     .do((response)=> {
       if(response){
@@ -110,16 +106,17 @@ export class DiscountService {
         return [];
       }
     })
+
   }
 
   getCategoryDiscounts(filter : any){
     console.log(filter);
-    return this.db.list<any>("discounts/",ref => ref.orderByChild("category").equalTo(filter)).valueChanges()
+  return this.db.list<any>("discounts/",ref => ref.orderByChild("category").equalTo(filter)).valueChanges()
     .do(response => {
       if(response){
         return response;
       }else{return []};
-    });
+    });  
   }
 
   removeDiscounts(index: number) {
@@ -134,19 +131,20 @@ export class DiscountService {
   addToFavorites(discount : any){
     this.favorites.push(discount);
     // console.log(this.favorites);
-    this.storage.set("favorites",this.favorites);
+    // this.storage.set("favorites",this.favorites);
   }
 
   getFavorites(){
-    return this.storage.get("favorites");
+    // return this.storage.get("favorites");
     //TODO - dohvati iz baze
+    return this.favorites.slice();
   }
 
   removeFromFavorites(discount : any){
     let index = this.favorites.map((o) => { return o.id; }).indexOf(discount.id);
     console.log(index);
     this.favorites.splice(index, 1);
-    this.storage.set("favorites",this.favorites);
+    // this.storage.set("favorites",this.favorites);
     //TODO - spremi nove favorite u bazu
   }
 

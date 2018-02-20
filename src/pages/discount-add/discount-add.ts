@@ -30,7 +30,7 @@ export class DiscountAddPage {
   imageHTML = "data:image/jpeg;base64,";
 
   options: CameraOptions = {
-    quality: 100,
+    quality: 50,
     destinationType: this.camera.DestinationType.DATA_URL,
     encodingType: this.camera.EncodingType.PNG,
     mediaType: this.camera.MediaType.PICTURE
@@ -74,7 +74,6 @@ export class DiscountAddPage {
     let imageRef = this.storage.child(discount.name + "-" + (customId) + ".jpg");
     imageRef.putString("data:image/jpeg;base64," + this.imageData, "data_url").then((response) => {
         discount["picture"] = response.downloadURL;
-        discount["id"] = customId;
         this.discountService.addDiscount(discount);
         load.dismiss();
         let alertDa = this.alertCtrl.create({message: "Artikal je dodan!", buttons:["OK"]});

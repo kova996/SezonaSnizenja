@@ -33,6 +33,7 @@ export class DiscountItemComponent implements OnInit{
 
   ionViewWillEnter(){
     console.log("Ušlo");
+    console.log(this.discount);
   }
 
   starClicked(){

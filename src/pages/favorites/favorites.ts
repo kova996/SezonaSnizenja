@@ -15,10 +15,10 @@ export class FavoritesPage {
   favorites;
 
   ionViewWillEnter(){
-    this.discountService.getFavorites().then(
-      response => this.favorites = response
-    );
-    console.log(this.favorites);
+    // this.discountService.getFavorites().then(
+    //   response => this.favorites = response
+    // );
+    // console.log(this.favorites);
   }
 
   onFavoriteEvent(favorites : any){
