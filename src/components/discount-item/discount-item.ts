@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { DiscountService } from '../../services/discount';
 import { ToastController,NavController, NavParams } from 'ionic-angular';
 
@@ -9,7 +9,7 @@ import { ArticlePage } from "../../pages/pages";
   selector: 'discount-item',
   templateUrl: 'discount-item.html' 
 })
-export class DiscountItemComponent implements OnInit{
+export class DiscountItemComponent{
 
   constructor(private nav: NavController, private navParams: NavParams,private discountService : DiscountService, private toastController : ToastController){
 
@@ -25,10 +25,6 @@ export class DiscountItemComponent implements OnInit{
 
   calculateDiscount(oldPrice: number, discount: number) {
     return oldPrice - (oldPrice * (discount / 100))
-  }
-
-  ngOnInit(){
-
   }
 
   ionViewWillEnter(){

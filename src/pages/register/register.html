@@ -14,18 +14,19 @@
   <img class="centered-block" src="../../assets/logo.png">
   <h2 text-center class="heading">Registracija</h2>
 
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <form #form="ngForm">
     <ion-list>
       <ion-item>
-        <ion-label color="light" floating>Username</ion-label>
-        <ion-input type="text" ngModel name="username"></ion-input>
+        <ion-label color="light" floating>Email</ion-label>
+        <ion-input type="text" ngModel name="email" required></ion-input>
       </ion-item>
       <ion-item>
         <ion-label color="light" floating>Password</ion-label>
-        <ion-input ngModel name="password" type="password"></ion-input>
+        <ion-input ngModel name="password" type="password" required></ion-input>
       </ion-item>
       <ion-item>
-        <button class="centered-block" ion-button type="submit" default>Registriraj me</button>
+        <button class="centered-block" ion-button type="buttton" default (click)="pushDetails(form)" [disabled]="form.invalid">
+          Next</button>
       </ion-item>
     </ion-list>
   </form>

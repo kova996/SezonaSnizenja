@@ -1,12 +1,15 @@
 import * as firebase from 'firebase';
 import { Events } from 'ionic-angular';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class AuthService {
     token: string;
-
+    
+    constructor(){}
 
     registerUser(email: string, password: string) {
-        firebase.auth().createUserWithEmailAndPassword(email, password)
+        return firebase.auth().createUserWithEmailAndPassword(email, password)
             .catch(
                 err => console.log(err)
             );
@@ -74,4 +77,6 @@ export class AuthService {
             err => console.log(err)
         );
     }
+
+    
 }

@@ -1,6 +1,6 @@
 
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController} from 'ionic-angular';
 import { DiscountService } from '../../services/discount';
 import { ArticlePage } from '../pages';
 
@@ -16,15 +16,17 @@ export class HomePage{
   discounts : any[];
   constructor(private discountService : DiscountService,
               private nav : NavController,
-              private navParams : NavParams,) {
+              private navParams : NavParams, private load : LoadingController) {
   }
 
 
   ionViewWillEnter(){
+    let load = this.load.create({content: "Dobavljanje sniženja..."});
+    load.present();
     this.discountService.getDiscounts().subscribe(
       response => {
-      //  this.discountService.loadFavorites();
        this.discounts = response;
+       load.dismiss();
       }
     );
 

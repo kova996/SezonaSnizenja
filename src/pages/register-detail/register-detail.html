@@ -1,0 +1,28 @@
+<ion-header no-border>
+
+  <ion-navbar transparent>
+    <ion-title class="title-color">Detalji</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Naziv trgovine</ion-label>
+        <ion-input type="text" ngModel name="storeName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Broj za kontakt</ion-label>
+        <ion-input type="text" ngModel name="number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Link za sliku</ion-label>
+        <ion-input type="text" ngModel name="linkPicture"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button class="centered-block" ion-button type="submit" default [disabled]="form.invalid">Submit</button>
+  </form>
+</ion-content>

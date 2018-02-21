@@ -12,5 +12,16 @@
 
 
 <ion-content padding>
-
+    <ion-grid *ngIf="stores.length > 0">
+        <ion-row >
+          <ion-col *ngFor="let store of stores" col-6>
+            <ion-card [style.backgroundImage]="'url('+store.linkPicture+')'" (click) = "openCatalogDetail(store)">
+              <!-- <img [src]="category.link"> -->
+              <div class="card-title">
+                {{store.storeName}}
+              </div>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 </ion-content>

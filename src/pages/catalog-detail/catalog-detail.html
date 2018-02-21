@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{store?.storeName}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="article-picture" [style.backgroundImage]="'url('+store?.linkPicture+')'">
+    <h1 class="article-title">{{store?.storeName}}</h1>
+  </div>
+  <ion-list>
+    <ion-item *ngFor="let discount of discounts; let i = index">
+      <discount-item [discount]="discount" [page]="'category-detail'"></discount-item>
+    </ion-item>
+  </ion-list>
+</ion-content>

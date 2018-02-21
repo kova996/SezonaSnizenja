@@ -75,7 +75,7 @@ export class ArticlePage {
 
     directionsDisplay.setMap(this.map);
 
-    this.location.findLocation(lat + ","+lon, this.article.store)
+    this.location.findLocation(lat + ","+lon, this.article.storeName)
       .subscribe((response : any) => {
         this.place = response.results;
         console.log(this.place);

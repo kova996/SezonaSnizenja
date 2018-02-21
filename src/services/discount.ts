@@ -1,15 +1,18 @@
-import * as firebase from "firebase";
+
 import { Injectable } from "@angular/core";
 import { AngularFireDatabase } from "angularfire2/database";
 import "rxjs/Rx";
 import {Observable} from "rxjs/Observable";
 import {of} from "rxjs/Observable/of";
+import { AuthService } from "./auth.service";
 
 @Injectable()
 export class DiscountService {
 
-  constructor(private db : AngularFireDatabase){
+  constructor(private db : AngularFireDatabase, private authService : AuthService){
   }
+
+  storeName = "";
 
 
   private discounts : any[] = [];
@@ -133,6 +136,10 @@ export class DiscountService {
     localStorage.setItem("favorites", JSON.stringify(this.favorites));
   }
 
+  saveFavorites(favorites){
+    this.favorites = favorites;
+  }
+
   getFavorites(){
     return this.favorites.slice();
     
@@ -140,7 +147,7 @@ export class DiscountService {
   }
 
   loadFavorites(){
-    this.favorites = JSON.parse(localStorage.getItem("favorites"));
+    this.favorites =  JSON.parse(localStorage.getItem("favorites"));
     // alert(this.favorites);
   }
 
@@ -157,4 +164,32 @@ export class DiscountService {
         return this.favorites.find(item => {return item.id === discount.id});
   }
 
+  getStores(){
+    return this.db.list<any>("users").valueChanges().do(
+      response => {
+        if(response){
+          return response;
+        }else{
+          return [];
+        }
+      }
+    )
+  }
+
+  getCatalogDiscounts(filter : any){
+    console.log(filter);
+  return this.db.list<any>("discounts/",ref => ref.orderByChild("storeName").equalTo(filter)).valueChanges()
+    .do(response => {
+      if(response){
+        return response;
+      }else{return []};
+    });  
+  }
+
+  getStoreName(){
+    return this.db.list<any>("users/"+this.authService.getCurrentUser().uid).valueChanges();
+  }
+  addUser(user){
+    this.db.list<any>("users/"+this.authService.getCurrentUser().uid).push(user);
+  }
 }

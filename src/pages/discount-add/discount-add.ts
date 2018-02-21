@@ -22,6 +22,7 @@ import { DiscountService } from '../../services/discount';
 export class DiscountAddPage {
 
   newPrice = 0;
+  user = [];
   oldPrice = 0;
   discount = 0;
   imageData = "";
@@ -40,8 +41,10 @@ export class DiscountAddPage {
               private loadCtrl : LoadingController, private alertCtrl : AlertController,
               private navCtrl : NavController) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DiscountAddPage');
+  ionViewWillEnter(){
+    this.discountService.getStoreName().subscribe(
+      response => this.user = response
+    )
   }
 
   onImageTaken() {
@@ -75,6 +78,8 @@ export class DiscountAddPage {
     imageRef.putString("data:image/jpeg;base64," + this.imageData, "data_url").then((response) => {
         discount["picture"] = response.downloadURL;
         discount["id"] = customId;
+        discount["storeName"] = this.user[0].storeName;
+        discount["storePicture"] = this.user[0].linkPicture;
         this.discountService.addDiscount(discount);
         load.dismiss();
         let alertDa = this.alertCtrl.create({message: "Artikal je dodan!", buttons:["OK"]});

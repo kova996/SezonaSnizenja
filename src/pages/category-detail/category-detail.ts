@@ -11,6 +11,7 @@ export class CategoryDetailPage {
 
   constructor( public navParams: NavParams, private discountService : DiscountService) {
     this.name = this.navParams.get("name");
+    
   }
   name : string;
   discounts : any[] = [];

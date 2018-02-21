@@ -14,4 +14,6 @@ export * from "./discount-add/discount-add";
 export * from "./discount-history/discount-history";
 export * from "./profile/profile";
 export * from "./category-detail/category-detail";
+export * from "./register-detail/register-detail";
+export * from "./catalog-detail/catalog-detail";
 
