@@ -89,7 +89,6 @@ export class DiscountService {
 
   favorites : any[] = [];
 
-
   addDiscount(discount: any) {
     this.discounts.push(discount);
     this.db.list<any>("discounts/").push(discount);
@@ -110,6 +109,8 @@ export class DiscountService {
     })
 
   }
+
+
 
   getCategoryDiscounts(filter : any){
     console.log(filter);
@@ -143,6 +144,7 @@ export class DiscountService {
     this.favorites.push(discount);
     console.log(this.favorites);
     localStorage.setItem("favorites", JSON.stringify(this.favorites));
+    alert(localStorage.getItem("favorites"));
   }
 
   saveFavorites(favorites){
@@ -167,6 +169,7 @@ export class DiscountService {
     console.log(this.favorites);
     localStorage.setItem("favorites",JSON.stringify(this.favorites));
     //TODO - spremi nove favorite u bazu
+    alert(localStorage.getItem("favorites"));
   }
 
   isInFavorites(discount : any){

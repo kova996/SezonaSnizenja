@@ -119,7 +119,13 @@ discount-item {
         top: 5px;
         right: 5px;
         z-index: 100000;
-        overflow: visible;
+        overflow: hidden;
         width: 70px;
+        max-height: 35px;
+    }
+    .shop-avatar img{
+        object-fit: scale-down;
+        height: 35px;
+        width: 50px;
     }
 }
