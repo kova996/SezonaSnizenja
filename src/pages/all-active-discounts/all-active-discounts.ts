@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DiscountService } from '../../services/discount';
 
-/**
- * Generated class for the AllActiveDiscountsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -15,11 +11,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AllActiveDiscountsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private discountService : DiscountService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AllActiveDiscountsPage');
+  discounts = [];
+
+  ionViewWillEnter(){
+    let name = this.navParams.get("name");
+    this.discountService.getCatalogDiscounts(name)
+    .subscribe(
+      response => {this.discounts = response
+      console.log(this.discounts)}
+    )
+  }
+
+  onDelete(discount : any){
+    this.discountService.removeDiscount(discount.id);
   }
 
 }

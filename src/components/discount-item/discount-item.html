@@ -4,7 +4,7 @@
       <ion-col col-4>
   <div item-start id="discount-item" [style.backgroundImage] = "'url('+discount.picture+')'">
     <!-- <img  [src]="discount.picture" [alt]="discount.name" id="discount-item__image"> -->
-    <button ion-button icon-only clear id="favorite" (click) = "starClicked()">
+    <button ion-button icon-only clear id="favorite" (click) = "starClicked()" *ngIf="page == 'home' || page =='favorites'">
       <ion-icon name="ios-star-outline" *ngIf = "!discountService.isInFavorites(discount)"></ion-icon>
       <ion-icon name="ios-star" *ngIf = "discountService.isInFavorites(discount)"></ion-icon>
     </button>

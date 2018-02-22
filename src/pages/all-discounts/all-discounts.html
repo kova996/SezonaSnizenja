@@ -9,5 +9,7 @@
 
 
 <ion-content padding>
-
+    <ion-item *ngFor = "let discount of discounts; let i = index">
+        <discount-item [discount]="discount"  [page] = "'all-discounts'"></discount-item>
+      </ion-item>
 </ion-content>

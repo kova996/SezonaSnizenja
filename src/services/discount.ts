@@ -121,8 +121,17 @@ export class DiscountService {
     });  
   }
 
-  removeDiscounts(index: number) {
-    this.discounts = this.discounts.splice(index, 1);
+  removeDiscount(id: number) {
+   this.db.list<any>("discounts/",ref => ref.orderByChild("id").equalTo(id)).snapshotChanges()
+   .map(actions => {
+    return actions.map(action => ({ key: action.key, ...action.payload.val() }));
+  }).take(1).subscribe(items => {
+    console.log("Evo ga");
+    let item = items.map(item => item.key);
+    console.log(item);
+    console.log(item[0]);
+    this.db.list<any>("discounts/").remove(item[0]);
+  });
     //dodaj discounte na server sa firebasom
   }
 

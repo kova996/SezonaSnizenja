@@ -1,3 +1,26 @@
 page-all-active-discounts {
 
+    font-family: 'Segoe UI';
+
+    ion-item {
+        position: relative;
+    }
+
+    .label{
+        margin: 0px;
+    }
+
+    .item-md p {
+        white-space: pre-line;
+        font-size: 12px;
+    }
+
+    .item-md {
+        padding-left:0px;
+    }
+
+    ion-item, .item-block{
+        
+        box-shadow: 0px 0px 41px -17px rgba(0,0,0,0.75);
+    }
 }

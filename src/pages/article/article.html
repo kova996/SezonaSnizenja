@@ -17,7 +17,7 @@
   <div class="article-picture" [style.backgroundImage]="'url('+article?.picture+')'">
     <h1 class="article-title">{{article?.name}}</h1>
     <div class="shop-avatar">
-      <img src="http://vu.esnlithuania.org/sites/vu.esnlithuania.org/files/partners/images/New%20Yorker%20logo.jpg" alt="shop-avatar">
+      <img [src]="article?.storePicture" alt="shop-avatar">
     </div>
   </div>
   <div class="article-content">

@@ -29,7 +29,7 @@ export class UserPage {
     this.pages =[
       { title: 'Dodaj sniženje', component: pages.DiscountAddPage },
       { title: 'Pregled aktivnih sniženja', component: pages.AllActiveDiscountsPage },
-      { title: 'Povijest sniženja', component: pages.DiscountHistoryPage },
+      // { title: 'Povijest sniženja', component: pages.DiscountHistoryPage },
     ]; 
   }
 
@@ -68,6 +68,6 @@ export class UserPage {
   // }
 
   openPage(page) {
-    this.navCtrl.push(page);
+    this.navCtrl.push(page, {name : this.user[0].storeName});
   }
 }
