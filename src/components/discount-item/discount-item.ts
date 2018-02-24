@@ -39,7 +39,7 @@ export class DiscountItemComponent{
       position: "top",
       duration: 1500
     });
-    if(this.discountService.isInFavorites(this.discount)){
+    if(this.discountService.isFavorite(this.discount.id)){
       this.discountService.removeFromFavorites(this.discount);
       toast.setMessage("Item removed from favorites!");
       this.favorites = this.discountService.getFavorites();

@@ -143,8 +143,9 @@ export class DiscountService {
   addToFavorites(discount : any){
     this.favorites.push(discount);
     console.log(this.favorites);
-    localStorage.setItem("favorites", JSON.stringify(this.favorites));
-    alert(localStorage.getItem("favorites"));
+
+    localStorage.setItem(discount.id, JSON.stringify(discount));
+    console.log(localStorage.getItem(discount.id));
   }
 
   saveFavorites(favorites){
@@ -152,9 +153,19 @@ export class DiscountService {
   }
 
   getFavorites(){
-    return this.favorites.slice();
+    let items = [];
+
+    let keys = Object.keys(localStorage);
+
+    for(let key of keys){
+      if(key.charAt(0)>='0' && key.charAt(0)<='9')
+        items.push(JSON.parse(localStorage.getItem(key)));
+    }
+    console.log(items);
+    return items.slice();
     
     //TODO - dohvati iz baze
+
   }
 
   loadFavorites(){
@@ -167,9 +178,15 @@ export class DiscountService {
     console.log(index);
     this.favorites.splice(index, 1);
     console.log(this.favorites);
-    localStorage.setItem("favorites",JSON.stringify(this.favorites));
+
+    localStorage.removeItem(discount.id);
+    //localStorage.setItem("favorites",JSON.stringify(this.favorites));
     //TODO - spremi nove favorite u bazu
-    alert(localStorage.getItem("favorites"));
+    //alert(localStorage.getItem("favorites"));
+  }
+
+  isFavorite(discountId){
+    return localStorage.getItem(discountId) ? true : false;
   }
 
   isInFavorites(discount : any){
