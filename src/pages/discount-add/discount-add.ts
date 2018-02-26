@@ -31,7 +31,9 @@ export class DiscountAddPage {
   imageHTML = "data:image/jpeg;base64,";
 
   options: CameraOptions = {
-    quality: 50,
+    quality: 25,
+    targetHeight:400,
+    targetWidth: 400,
     destinationType: this.camera.DestinationType.DATA_URL,
     encodingType: this.camera.EncodingType.PNG,
     mediaType: this.camera.MediaType.PICTURE

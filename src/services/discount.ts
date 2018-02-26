@@ -153,8 +153,7 @@ export class DiscountService {
 
   getFavorites(){
     return this.favorites.slice();
-    
-    //TODO - dohvati iz baze
+
   }
 
   loadFavorites(){
@@ -168,7 +167,6 @@ export class DiscountService {
     this.favorites.splice(index, 1);
     console.log(this.favorites);
     localStorage.setItem("favorites",JSON.stringify(this.favorites));
-    //TODO - spremi nove favorite u bazu
     alert(localStorage.getItem("favorites"));
   }
 
