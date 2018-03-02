@@ -1,8 +1,11 @@
+import { Observable } from 'rxjs/Observable';
 
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams} from 'ionic-angular';
 import { DiscountService } from '../../services/discount';
 import { ArticlePage } from '../pages';
+
+import { CacheService } from 'ionic-cache';
 
 @IonicPage()
 @Component({
@@ -13,19 +16,19 @@ export class HomePage{
 
   favorites = [];
 
-  discounts : any[];
+  discounts : Observable<any>;
   constructor(private discountService : DiscountService,
               private nav : NavController,
-              private navParams : NavParams) {
+              private navParams : NavParams,
+              private cache: CacheService) {
   }
 
 
   ionViewWillEnter(){
-    this.discountService.getDiscounts().subscribe(
-      response => {
-       this.discounts = response;
-      }
-    );
+
+    let data = this.discountService.getDiscounts();
+
+    this.discounts = this.cache.loadFromObservable("data",data);
 
   }
 

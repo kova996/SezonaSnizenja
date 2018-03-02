@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { HomePage } from './../pages/home/home';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { Nav, Platform, Events } from 'ionic-angular';
@@ -10,6 +11,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 // import { AgmCoreModule } from '@agm/core';
 
 import * as firebase from 'firebase';
+
+import { CacheService } from 'ionic-cache';
 
 import { AuthService } from '../services/auth.service';
 import { auth } from 'firebase';
@@ -26,8 +29,13 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private auth: AuthService,
-     private events: Events) {
+  constructor(public platform: Platform, 
+              public statusBar: StatusBar, 
+              public splashScreen: SplashScreen, 
+              private auth: AuthService,
+              private events: Events,
+              private cache: CacheService,
+              private http: Http) {
     
     
     this.initializeApp();
@@ -68,6 +76,10 @@ export class MyApp {
 
       let authRef = this.auth;
       let ref = this;
+
+      //for data cache
+      this.cache.setDefaultTTL(60*60*24);
+      this.cache.setOfflineInvalidate(false);
 
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {

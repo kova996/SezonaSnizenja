@@ -15,7 +15,10 @@ import { DiscountService } from '../services/discount';
 import { DiscountItemComponent } from '../components/discount-item/discount-item';
 import {Geolocation} from "@ionic-native/geolocation";
 import { LocationService } from '../services/location';
+
 import { HttpModule } from '@angular/http';
+import { CacheModule } from 'ionic-cache';
+
 import {Camera} from "@ionic-native/camera";
 import {AngularFireDatabaseModule, AngularFireDatabase} from "angularfire2/database";
 import {AngularFireModule} from "angularfire2";
@@ -50,6 +53,7 @@ import { MaxLengthPipe } from '../pipes/length-pipe';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    CacheModule.forRoot(),
     HttpModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp( {
