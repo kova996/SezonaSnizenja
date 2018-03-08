@@ -25,15 +25,26 @@ export class HomePage{
 
 
   ionViewWillEnter(){
-
-    let data = this.discountService.getDiscounts();
-
-    this.discounts = this.cache.loadFromObservable("data",data);
-
+    this.loadData();
   }
 
   openArticlePage(discount){
     this.nav.push(ArticlePage, discount);
   }
 
+  loadData(refresher?){
+    let data = this.discountService.getDiscounts();
+
+    if(refresher){
+      let delayType='all';
+      this.discounts = this.cache.loadFromDelayedObservable('data', data, 'Discounts', 60 * 60 * 24 , delayType);
+
+      this.discounts.subscribe( data => {
+        refresher.complete();
+      });
+    }
+    else{
+      this.discounts = this.cache.loadFromObservable("data",data,'Discounts',60 * 60 * 24,);
+    }
+  }
 }

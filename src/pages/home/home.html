@@ -12,13 +12,23 @@
 </ion-header>
 
 <ion-content padding>
+
+    <ion-refresher (ionRefresh)="loadData($event)">
+      <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="Povucite za osvježavanje"
+        refreshingSpinner="crescent"
+        refreshingText="Osvježavanje...">
+      </ion-refresher-content>
+    </ion-refresher>
+
   <ion-list>
     <!-- TODO:
     Make this article view and later make a component out of it -->
 
     <!-- <discount-item *ngFor = "let discount of discounts; let i = index" [discount]="discount"></discount-item> -->
 
-    <ion-item *ngFor = "let discount of discounts | async ; let i = index">
+    <ion-item *ngFor = " let i = index; let discount of discounts | async">
       <discount-item [discount]="discount"  [page] = "'home'"></discount-item>
     </ion-item>
 
